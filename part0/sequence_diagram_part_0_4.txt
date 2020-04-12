@@ -1,0 +1,17 @@
+title Exercise 0.4 "New Note"
+
+Client->Server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note\nForm Data: {note: "My comment"}
+note right of Server: Server adds the new note to the array of notes
+Server->Client: HTTP Status Code 302. Redirect to /notes.
+note left of Client: Server forces reload of /notes on Client to show the new note
+Client->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+Server->Client: HTML code of /notes
+note left of Client: Client parses HTML and is requesting additional files
+Client->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Server->Client: CSS code
+Client->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Server->Client: JS code
+note left of Client: JS file is evaluated and referenced JSON file is requested
+Client->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Server->Client: JSON file
+note left of Client: Notes are rendered via event handler

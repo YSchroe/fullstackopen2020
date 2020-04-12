@@ -1,0 +1,17 @@
+title Exercise 0.6 "New Note (SPA)"
+
+note left of Client:
+User submits the form
+end note
+note left of Client:
+The JS code on the Client Side
+rerenders the notes list BEFORE sending the
+POST request to the Server.
+(In the current implementation the notes list
+on Client side and the notes list on Server side
+could get out of sync.)
+end note
+Client->Server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa\nbody.content: {content: "My comment", date: ...}
+note right of Server: Server adds the new note to the array of notes
+Server->Client: HTTP Status Code 201
+
